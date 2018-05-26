@@ -6,6 +6,8 @@
 package examen1;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +18,8 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    Scanner leer = new Scanner(System.in);
+
     public Principal() {
         initComponents();
 
@@ -52,19 +56,21 @@ public class Principal extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        nom = new javax.swing.JTextField();
+        eda = new javax.swing.JTextField();
+        cor = new javax.swing.JTextField();
+        usu = new javax.swing.JTextField();
+        con = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        codigo = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        texto = new javax.swing.JTextArea();
         jButton7 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -181,8 +187,18 @@ public class Principal extends javax.swing.JFrame {
         jLabel13.setText("Contraseña");
 
         jButton5.setText("Modificar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         jButton6.setText("Eliminar cuenta");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -198,16 +214,16 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel12))
                 .addGap(100, 100, 100)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField4)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                    .addComponent(jTextField6))
+                    .addComponent(nom)
+                    .addComponent(eda)
+                    .addComponent(cor)
+                    .addComponent(usu, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                    .addComponent(con))
                 .addGap(163, 163, 163)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(347, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,23 +233,23 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(57, 57, 57)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(eda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(48, 48, 48)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(usu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(62, 62, 62)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(con, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,21 +266,32 @@ public class Principal extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(240, 240, 240));
         jLabel14.setText("Codigo Generado ");
 
+        codigo.setColumns(20);
+        codigo.setRows(5);
+        jScrollPane2.setViewportView(codigo);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel14)
-                .addContainerGap(495, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jLabel14))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(319, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel14)
-                .addContainerGap(470, Short.MAX_VALUE))
+                .addGap(66, 66, 66)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("VIsualizar", jPanel2);
@@ -275,11 +302,16 @@ public class Principal extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(240, 240, 240));
         jLabel15.setText("Ingrese el codigo que desee generar: ");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        texto.setColumns(20);
+        texto.setRows(5);
+        jScrollPane1.setViewportView(texto);
 
         jButton7.setText("Guardar");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -293,7 +325,7 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(313, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton7)
@@ -358,6 +390,11 @@ public class Principal extends javax.swing.JFrame {
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -456,9 +493,114 @@ public class Principal extends javax.swing.JFrame {
         jd_registrar.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        nom.setText("");
+        usu.setText("");
+        con.setText("");
+        cor.setText("");
+        eda.setText("");
+        listas.remove(con);
+        listas.remove(nom);
+        listas.remove(usu);
+        listas.remove(cor);
+        listas.remove(eda);
+        JOptionPane.showMessageDialog(this, "Su cuenta ha sido borrada exitosamente");
+
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        try {
+            int opcion;
+            opcion = Integer.parseInt(JOptionPane.showInputDialog("Elija una de las cosas que desea eliminar:\n"
+                    + "1.Nombre\n"
+                    + "2.Edad\n"
+                    + "3.correo electronico\n"
+                    + "4.nombre de usuario\n"
+                    + "5.contraseña"));
+            switch (opcion) {
+                case 1:
+                    JOptionPane.showInputDialog("Ingrese el nuevo nombre");
+                    String t = leer.next();
+                    texto.getText();
+                    nombre.setText(t);
+                    break;
+                case 2:
+                    JOptionPane.showInputDialog("Ingrese la nueva edad");
+                    String ed = leer.next();
+                    texto.getText();
+                    edad.setText(ed);
+                    break;
+                case 3:
+                    JOptionPane.showInputDialog("Ingrese el nuevo correo elecotronico");
+                    String cop = leer.next();
+                    texto.getText();
+                    correo.setText(cop);
+                    break;
+                case 4:
+                    JOptionPane.showInputDialog("Ingrese el nuevo nombre del usuario");
+                    String g = leer.next();
+                    texto.getText();
+                    usuario.setText(g);
+                    break;
+                case 5:
+                    JOptionPane.showInputDialog("Ingrese la nueva contraseña");
+                    String f = leer.next();
+                    texto.getText();
+                    contrasena.setText(f);
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(this, "Esa opcion no esta en el menu");
+            }
+            JOptionPane.showMessageDialog(this, "Ya ha sido actualizado en la cuenta");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Hubo un pequeño fallo");
+        }
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        String text = texto.getText();
+        ArrayList<Usuario> li = new ArrayList();
+        Usuario s = new Usuario();
+        li.add(s);
+        if (text.contains("create ")) {
+            String cadena = "";
+            for (Usuario c : li) {
+                cadena += c.getClass();
+                codigo.setText(c.toString());
+            }
+        } else {
+        }
+        if (text.contains("modify class") || text.contains("Modify class")) {
+        } else {
+        }
+        if (text.contains("delete class")) {
+            codigo.setText("");
+            
+        }
+
+        //añadir los atributos
+        if (text.contains("add atribute") || text.contains("add Atribute")) {
+
+        } else {
+
+        }
+        if (text.contains("modify atribute") || text.contains("modify Atribute")) {
+
+        } else {
+
+        }
+        if (text.contains("delete Atribute")) {
+
+        }
+        texto.setText("");
+
+
+    }//GEN-LAST:event_jButton7MouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -492,8 +634,12 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea codigo;
+    private javax.swing.JTextField con;
     private javax.swing.JTextField contrasena;
+    private javax.swing.JTextField cor;
     private javax.swing.JTextField correo;
+    private javax.swing.JTextField eda;
     private javax.swing.JTextField edad;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -522,17 +668,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JDialog jd_logeado;
     private javax.swing.JDialog jd_registrar;
+    private javax.swing.JTextField nom;
     private javax.swing.JTextField nombre;
+    private javax.swing.JTextArea texto;
+    private javax.swing.JTextField usu;
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 ArrayList<Usuario> listas = new ArrayList();
